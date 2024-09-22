@@ -1,21 +1,23 @@
 const selectedSeatEl = document.getElementById('selected-seat');
 const totalBookedEl = document.getElementById('total-booked');
 // const availableSeatEl=document.getElementById('available-seat');
+const hiddenTitleEl = document.getElementById('hidden-title');
 const totalPriceEl = document.getElementById('total-price');
 const couponInputEl = document.getElementById('coupon-input');
 const couponBtnEl = document.getElementById('coupon-btn');
 
 let selectedSeat = [];
-let totalPrice=0;
+let totalPrice = 0;
 
 function handleSelectSeat(event) {
-    const value=event.innerText;
-    if(selectedSeat.includes(value)){
+    const value = event.innerText;
+    hiddenTitleEl.classList.add('hidden');
+    if (selectedSeat.includes(value)) {
         alert('Seat already selected');
         return;
     }
-    
-    
+
+
 
     selectedSeat.push(event.innerText);
 
@@ -39,16 +41,16 @@ function handleSelectSeat(event) {
     <span>550</span>
     </li>
     `
-    totalPrice+=550;
+    totalPrice += 550;
     console.log(totalPrice)
-    totalPriceEl.innerText=totalPrice.toFixed(2);
+    totalPriceEl.innerText = totalPrice.toFixed(2);
     // console.log(selectedSeat);
 
     // active coupon button
-    if(selectedSeat.length>3){
+    if (selectedSeat.length > 3) {
         couponInputEl.removeAttribute('disabled');
         couponBtnEl.removeAttribute('disabled');
     }
 
-    
+
 }
